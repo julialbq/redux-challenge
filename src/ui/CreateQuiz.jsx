@@ -1,3 +1,4 @@
+import "./CreateQuiz.css"
 import { Question } from "./Question";
 
 export const CreateQuiz = () => {

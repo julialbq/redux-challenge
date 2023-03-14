@@ -1,0 +1,12 @@
+.form-body__question {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.form-body__question--title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
