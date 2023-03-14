@@ -15,6 +15,7 @@ export const CreateQuiz = () => {
           ></textarea>
         </div>
         <div className="form-body">
+          <Question />
         </div>
       </form>
     </div>
