@@ -1,10 +1,12 @@
 import "./CreateQuestion.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { questionTitleAction, questionTypeAction } from "../../state/question";
 import { Button } from "./Button";
 import { Input } from "./Input";
+import { getQuestions } from "../../state/quiz";
 
 export const CreateQuestion = ({ onClick }) => {
+  const questions = useSelector((state) => getQuestions(state))
   const dispatch = useDispatch();
 
   const changeQuestionType = (value) => {
@@ -35,7 +37,7 @@ export const CreateQuestion = ({ onClick }) => {
         </select>
       </div>
 
-      <Button type="button" onClick={onClick}>
+      <Button type="button" onClick={onClick} disabled={questions.length === 10}>
         Add question
       </Button>
     </div>
