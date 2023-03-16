@@ -41,6 +41,14 @@ export const quizReducer = (state = quizInitialState, action) => {
         },
         questionDisplayed: false,
       };
+    case "QUIZ_QUESTION_REMOVED":
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          questions: state.data.questions.filter((question) => question.title !== action.data)
+        }
+      }
     default:
       return state;
   }
@@ -80,6 +88,13 @@ export const quizQuestionAddedAction = (value) => {
     data: value,
   };
 };
+
+export const quizQuestionRemovedAction = (value) => {
+  return {
+    type:  "QUIZ_QUESTION_REMOVED",
+    data: value
+  }
+}
 
 export const getQuizCreation = (state) => {
   return state.quiz.quizCreation;
