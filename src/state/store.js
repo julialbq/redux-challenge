@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { questionTypeReducer } from "./question";
+import { questionReducer } from "./question";
 import { quizReducer } from "./quiz";
 
 const reducer = combineReducers({
   quiz: quizReducer,
-  questionType: questionTypeReducer,
+  question: questionReducer,
 });
 
 export const store = configureStore({ reducer });
