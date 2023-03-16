@@ -1,6 +1,12 @@
+import axios from "axios";
+import { apiUrl } from "../infrastructure/apiUrl";
+
 const quizInitialState = {
   quizCreation: false,
   questionDisplayed: false,
+  loading: false,
+  failed: false,
+  succeeded: false,
   data: { title: "", description: "", questions: [] },
 };
 
@@ -46,9 +52,29 @@ export const quizReducer = (state = quizInitialState, action) => {
         ...state,
         data: {
           ...state.data,
-          questions: state.data.questions.filter((question) => question.title !== action.data)
-        }
-      }
+          questions: state.data.questions.filter(
+            (question) => question.title !== action.data
+          ),
+        },
+      };
+    case "QUIZ_SAVE_PENDING":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "QUIZ_SAVE_SUCCEEDED":
+      return {
+        ...state,
+        data: action.data,
+        loading: false,
+        succeeded: true,
+      };
+    case "QUIZ_SAVE_FAILED":
+      return {
+        ...state,
+        loading: false,
+        failed: true,
+      };
     default:
       return state;
   }
@@ -91,10 +117,31 @@ export const quizQuestionAddedAction = (value) => {
 
 export const quizQuestionRemovedAction = (value) => {
   return {
-    type:  "QUIZ_QUESTION_REMOVED",
-    data: value
-  }
-}
+    type: "QUIZ_QUESTION_REMOVED",
+    data: value,
+  };
+};
+
+export const quizSavedAction = (value) => {
+  return async (dispatch) => {
+    dispatch({
+      type: "QUIZ_SAVE_PENDING",
+    });
+
+    try {
+      await axios.post(`${apiUrl}/quizzes`, value);
+
+      dispatch({
+        type: "QUIZ_SAVE_SUCCEEDED",
+        data: { title: "", description: "", questions: [] },
+      });
+    } catch (error) {
+      dispatch({
+        type: "QUIZ_SAVE_FAILED",
+      });
+    }
+  };
+};
 
 export const getQuizCreation = (state) => {
   return state.quiz.quizCreation;
@@ -114,4 +161,20 @@ export const getQuestionDisplayed = (state) => {
 
 export const getQuestions = (state) => {
   return state.quiz.data.questions;
+};
+
+export const getQuiz = (state) => {
+  return state.quiz.data;
+};
+
+export const getQuizLoading = (state) => {
+  return state.quiz.loading;
+};
+
+export const getQuizFailed = (state) => {
+  return state.quiz.failed;
+};
+
+export const getQuizSucceeded = (state) => {
+  return state.quiz.succeeded;
 };
