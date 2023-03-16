@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import { getQuizCreation, quizCreatedAction } from "./state/quiz";
-import { CreateQuiz } from "./ui/CreateQuiz";
+import { Button } from "./ui/components/Button";
+import { CreateQuiz } from "./ui/components/CreateQuiz";
 
 function App() {
   const quizCreation = useSelector((state) => getQuizCreation(state));
@@ -13,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <button className="App__button" onClick={createQuizPage}>Create quiz</button>
+      <Button onClick={createQuizPage}>Create Quiz</Button>
       {quizCreation && <CreateQuiz />}
     </div>
   );
