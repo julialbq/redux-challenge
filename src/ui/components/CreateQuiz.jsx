@@ -1,7 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getQuestion,
-} from "../../state/question";
+import { getQuestion } from "../../state/question";
 import {
   getQuestions,
   quizDescriptionAction,
@@ -9,6 +7,7 @@ import {
   quizTitleAddedAction,
   getQuestionDisplayed,
   questionDisplayedAction,
+  quizQuestionRemovedAction,
 } from "../../state/quiz";
 import { Button } from "./Button";
 import "./CreateQuiz.css";
@@ -37,6 +36,10 @@ export const CreateQuiz = () => {
   const displayNewQuestion = () => {
     dispatch(questionDisplayedAction());
   };
+
+  const removeQuestion = (value) => {
+    dispatch(quizQuestionRemovedAction(value));
+  };
   return (
     <div className="form-wrapper">
       <form className="form">
@@ -64,8 +67,16 @@ export const CreateQuiz = () => {
             <CreateQuestion onClick={() => addQuestion(question)} />
           )}
           <ul className="form-body__list">
-          {allQuestions.length > 0 &&
-            allQuestions.map(({title, type}, index) => (<DisplayedQuestions key={title} title={title} type={type} index={index} />))}
+            {allQuestions.length > 0 &&
+              allQuestions.map(({ title, type }, index) => (
+                <DisplayedQuestions
+                  key={title}
+                  title={title}
+                  type={type}
+                  index={index}
+                  onClick={() => removeQuestion(title)}
+                />
+              ))}
           </ul>
         </div>
       </form>
