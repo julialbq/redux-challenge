@@ -6,7 +6,7 @@ import { Input } from "./Input";
 import { getQuestions } from "../../state/quiz";
 
 export const CreateQuestion = ({ onClick }) => {
-  const questions = useSelector((state) => getQuestions(state))
+  const questions = useSelector((state) => getQuestions(state));
   const dispatch = useDispatch();
 
   const changeQuestionType = (value) => {
@@ -23,6 +23,7 @@ export const CreateQuestion = ({ onClick }) => {
         <Input
           label="Question title:"
           type="text"
+          min={3}
           placeholder="Title"
           onChange={(e) => addQuestionTitle(e.target.value)}
         />
@@ -36,10 +37,15 @@ export const CreateQuestion = ({ onClick }) => {
           <option value="number">Number</option>
         </select>
       </div>
-
-      <Button type="button" onClick={onClick} disabled={questions.length === 10}>
-        Add question
-      </Button>
+      {
+        <Button
+          type="button"
+          onClick={onClick}
+          disabled={questions.length === 10}
+        >
+          Add question
+        </Button>
+      }
     </div>
   );
 };
