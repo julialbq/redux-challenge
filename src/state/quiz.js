@@ -55,38 +55,29 @@ export const quizCreatedAction = () => {
 };
 
 export const quizTitleAddedAction = (value) => {
-  return (dispatch) => {
-    dispatch({
-      type: "QUIZ_TITLE_ADDED",
-      data: value,
-    });
+  return {
+    type: "QUIZ_TITLE_ADDED",
+    data: value,
   };
 };
 
 export const quizDescriptionAction = (value) => {
-  return (dispatch) => {
-    dispatch({
-      type: "QUIZ_DESCRIPTION_ADDED",
-      data: value,
-    });
+  return {
+    type: "QUIZ_DESCRIPTION_ADDED",
+    data: value,
   };
 };
 
-
 export const questionDisplayedAction = () => {
-  return (dispatch) => {
-    dispatch({
-      type: "QUESTION_DISPLAYED",
-    });
+  return {
+    type: "QUESTION_DISPLAYED",
   };
 };
 
 export const quizQuestionAddedAction = (value) => {
-  return (dispatch) => {
-    dispatch({
-      type: "QUIZ_QUESTION_ADDED",
-      data: value,
-    });
+  return {
+    type: "QUIZ_QUESTION_ADDED",
+    data: value,
   };
 };
 

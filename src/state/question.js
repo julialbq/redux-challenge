@@ -23,7 +23,7 @@ export const questionReducer = (state = questionInitialState, action) => {
           type: action.data,
         },
       };
-      
+
     default:
       return state;
   }
@@ -41,60 +41,16 @@ export const getQuestion = (state) => {
   return state.question.data;
 };
 
-
-
 export const questionTitleAction = (value) => {
-  return (dispatch) => {
-    dispatch({
-      type: "QUESTION_TITLE_ADDED",
-      data: value,
-    });
+  return {
+    type: "QUESTION_TITLE_ADDED",
+    data: value,
   };
 };
 
 export const questionTypeAction = (value) => {
-  return (dispatch) => {
-    dispatch({
-      type: "QUESTION_TYPE_ADDED",
-      data: value,
-    });
+  return {
+    type: "QUESTION_TYPE_ADDED",
+    data: value,
   };
 };
-
-
-// const questionDisplayedInitialState = {
-//   questionDisplayed: false,
-//   questionConfirmed: false,
-// };
-
-// export const questionDisplayedReducer = (
-//   state = questionDisplayedInitialState,
-//   action
-// ) => {
-//   switch (action.type) {
-//     case "QUESTION_DISPLAYED":
-//       return {
-//         ...state,
-//         questionDisplayed: true,
-//       };
-//     case "QUESTION_CONFIRMED":
-//       return {
-//         ...state,
-//         questionDisplayed: false,
-//         questionConfirmed: true,
-//       };
-
-//     default:
-//       return state;
-//   }
-// };
-
-
-
-// export const questionConfirmedAction = () => {
-//   return (dispatch) => {
-//     dispatch({
-//       type: "QUESTION_CONFIRMED",
-//     });
-//   };
-// };
