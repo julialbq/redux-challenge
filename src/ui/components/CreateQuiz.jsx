@@ -8,6 +8,11 @@ import {
   getQuestionDisplayed,
   questionDisplayedAction,
   quizQuestionRemovedAction,
+  getQuiz,
+  getQuizLoading,
+  getQuizFailed,
+  quizSavedAction,
+  getQuizSucceeded,
 } from "../../state/quiz";
 import { Button } from "./Button";
 import "./CreateQuiz.css";
@@ -19,6 +24,10 @@ export const CreateQuiz = () => {
   const question = useSelector((state) => getQuestion(state));
   const allQuestions = useSelector((state) => getQuestions(state));
   const questionDisplayed = useSelector((state) => getQuestionDisplayed(state));
+  const quiz = useSelector((state) => getQuiz(state));
+  const loading = useSelector((state) => getQuizLoading(state));
+  const failed = useSelector((state) => getQuizFailed(state));
+  const succeeded = useSelector((state) => getQuizSucceeded(state));
   const dispatch = useDispatch();
 
   const addTitle = (value) => {
@@ -40,13 +49,24 @@ export const CreateQuiz = () => {
   const removeQuestion = (value) => {
     dispatch(quizQuestionRemovedAction(value));
   };
+
+  const saveQuiz = (value) => {
+    dispatch(quizSavedAction(value));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    saveQuiz(quiz);
+  };
+
   return (
     <div className="form-wrapper">
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <div className="form-header">
           <Input
             label="Quiz title:"
             type="text"
+            min={5}
             placeholder="Title"
             onChange={(e) => addTitle(e.target.value)}
           />
@@ -79,6 +99,14 @@ export const CreateQuiz = () => {
               ))}
           </ul>
         </div>
+        {!succeeded && (
+          <Button
+            type="submit"
+            disabled={failed || loading || allQuestions.length === 0}
+          >
+            Finish
+          </Button>
+        )}
       </form>
     </div>
   );
