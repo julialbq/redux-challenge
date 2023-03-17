@@ -139,6 +139,7 @@ export const quizSavedAction = (value) => {
       dispatch({
         type: "QUIZ_SAVE_FAILED",
       });
+      console.log(error.message)
     }
   };
 };
