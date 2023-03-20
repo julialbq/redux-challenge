@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Red Hat Display', sans-serif;
+    font-family: 'Red Hat Text', sans-serif;
 }
 
 ul, ol, li {
