@@ -5,7 +5,7 @@ const allQuizzesInitialState = {
   loading: false,
   failed: false,
   allQuizzes: [],
-  selectedQuiz: {},
+  selectedId: 0,
 };
 
 export const allQuizzesReducer = (state = allQuizzesInitialState, action) => {
@@ -32,6 +32,7 @@ export const allQuizzesReducer = (state = allQuizzesInitialState, action) => {
       return {
         ...state,
         selectedQuiz: state.allQuizzes.find((quiz) => quiz.id === action.data),
+        selectedQuizId: action.data,
       };
     default: {
       return state;
@@ -73,7 +74,7 @@ export const getQuizzes = (state) => {
 };
 
 export const getSelectedQuiz = (state) => {
-  return state.quizzesList.selectedQuiz;
+  return state.quizzesList.allQuizzes.find((quiz) => quiz.id === state.quizzesList.selectedQuizId);
 };
 
 export const getQuizzesLoading = (state) => {

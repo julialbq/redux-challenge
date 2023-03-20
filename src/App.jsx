@@ -19,15 +19,11 @@ function App() {
   return (
     <div className="App">
       <div className="create-quiz__container">
-        {Object.keys(selectedQuiz).length === 0 && (
-          <Button onClick={createQuizPage}>Create Quiz</Button>
-        )}
+        <Button onClick={createQuizPage}>Create Quiz</Button>
 
         {quizCreation && <CreateQuiz />}
 
-        {Object.keys(selectedQuiz).length > 0 && (
-          <SelectedQuiz quiz={selectedQuiz} />
-        )}
+        {selectedQuiz !== undefined && <SelectedQuiz quiz={selectedQuiz} />}
       </div>
       <QuizList />
     </div>
