@@ -19,6 +19,9 @@ ul, ol, li {
   --primary-grey: #262626;
   --primary-green: #29D305;
   --signal-red: #EE0701;
+  --signal-red-opacity: rgba(238, 7, 1, 0.3);
+  --grey-30: #BDBDBD;
+  --grey-5: #F4F4F4;
 }
 
 .dark {
