@@ -14,7 +14,7 @@ export const Quiz = ({title, id}) => {
   return (
     <li className="sidebar__item">
       <p>{title}</p>
-      <Button type="button" onClick={() => findQuiz(id)}>Select quiz</Button>
+      <Button buttonType="secondary" type="button" onClick={() => findQuiz(id)}>Select</Button>
     </li>
   )
 }

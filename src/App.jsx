@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <div className="create-quiz__container">
-        <Button onClick={createQuizPage}>Create Quiz</Button>
+        <Button buttonType="primary" large onClick={createQuizPage}>Create Quiz</Button>
 
         {quizCreation && <CreateQuiz />}
 

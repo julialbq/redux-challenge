@@ -77,7 +77,7 @@ export const CreateQuiz = () => {
             placeholder="Form description"
             onChange={(e) => addDescription(e.target.value)}
           ></textarea>
-          <Button type="button" onClick={displayNewQuestion}>
+          <Button buttonType="secondary" type="button" onClick={displayNewQuestion}>
             New question
           </Button>
         </div>
@@ -101,6 +101,7 @@ export const CreateQuiz = () => {
         </div>
         {!succeeded && (
           <Button
+          buttonType="primary"
             type="submit"
             disabled={failed || loading || allQuestions.length === 0}
           >

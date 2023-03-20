@@ -39,6 +39,7 @@ export const CreateQuestion = ({ onClick }) => {
       </div>
       {
         <Button
+        buttonType="secondary"
           type="button"
           onClick={onClick}
           disabled={questions.length === 10}
