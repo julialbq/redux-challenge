@@ -6,6 +6,7 @@ import { Button } from "./ui/components/Button";
 import { CreateQuiz } from "./ui/components/CreateQuiz";
 import { QuizList } from "./ui/components/QuizList";
 import { SelectedQuiz } from "./ui/components/SelectedQuiz";
+import { GlobalStyle } from "./ui/style/global";
 
 function App() {
   const quizCreation = useSelector((state) => getQuizCreation(state));
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div className="App">
+      <GlobalStyle />
       <div className="create-quiz__container">
         <Button onClick={createQuizPage}>Create Quiz</Button>
 
