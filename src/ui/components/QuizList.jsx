@@ -1,4 +1,3 @@
-import "./QuizList.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getQuizzes,
@@ -9,6 +8,7 @@ import {
 import { Quiz } from "./Quiz";
 import { useEffect } from "react";
 import { StyledBox } from "../style/box";
+import { StyledList } from "../style/list";
 
 export const QuizList = () => {
   const allQuizzes = useSelector((state) => getQuizzes(state));
@@ -27,12 +27,12 @@ export const QuizList = () => {
     <StyledBox sidebar>
       {loading && <p>Loading...</p>}
       {failed && <p>Try again</p>}
-      <ul className="sidebar__list">
+      <StyledList>
         {allQuizzes.length > 0 &&
           allQuizzes.map(({ title, id }) => (
             <Quiz key={id} title={title} id={id} />
           ))}
-      </ul>
+      </StyledList>
     </StyledBox>
   );
 };

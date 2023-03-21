@@ -21,6 +21,7 @@ import { CreateQuestion } from "./CreateQuestion";
 import { DisplayedQuestions } from "./DisplayedQuestion";
 import { Textarea } from "./Textarea";
 import { StyledBox } from "../style/box";
+import { StyledList } from "../style/list";
 
 export const CreateQuiz = () => {
   const question = useSelector((state) => getQuestion(state));
@@ -91,7 +92,7 @@ export const CreateQuiz = () => {
           {questionDisplayed && (
             <CreateQuestion onClick={() => addQuestion(question)} />
           )}
-          <ul className="form-body__list">
+          <StyledList>
             {allQuestions.length > 0 &&
               allQuestions.map(({ title, type }, index) => (
                 <DisplayedQuestions
@@ -102,7 +103,7 @@ export const CreateQuiz = () => {
                   onClick={() => removeQuestion(title)}
                 />
               ))}
-          </ul>
+          </StyledList>
         </StyledBox>
         {!succeeded && (
           <Button
