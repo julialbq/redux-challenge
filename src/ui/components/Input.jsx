@@ -1,12 +1,13 @@
+import { StyledDiv } from "../style/div";
 import { StyledInput } from "../style/Input";
 import { StyledLabel } from "../style/label";
-import "./Input.css";
 
 export const Input = ({ label, name, type, placeholder, onChange, min }) => {
   return (
-    <>
+    <StyledDiv>
       <StyledLabel>
         {label}
+        </StyledLabel>
         <StyledInput
           className="input"
           name={name}
@@ -15,7 +16,6 @@ export const Input = ({ label, name, type, placeholder, onChange, min }) => {
           placeholder={placeholder}
           onChange={onChange}
         />
-      </StyledLabel>
-    </>
+    </StyledDiv>
   );
 };
