@@ -20,6 +20,7 @@ import { Input } from "./Input";
 import { CreateQuestion } from "./CreateQuestion";
 import { DisplayedQuestions } from "./DisplayedQuestion";
 import { Textarea } from "./Textarea";
+import { StyledBox } from "../style/box";
 
 export const CreateQuiz = () => {
   const question = useSelector((state) => getQuestion(state));
@@ -63,7 +64,7 @@ export const CreateQuiz = () => {
   return (
     <div className="form-wrapper">
       <form className="form" onSubmit={handleSubmit}>
-        <div className="form-header">
+        <StyledBox>
           <Input
             label="Quiz title"
             type="text"
@@ -84,8 +85,8 @@ export const CreateQuiz = () => {
           >
             New question
           </Button>
-        </div>
-        <div className="form-body">
+        </StyledBox>
+        <StyledBox>
           <h3>Questions</h3>
           {questionDisplayed && (
             <CreateQuestion onClick={() => addQuestion(question)} />
@@ -102,7 +103,7 @@ export const CreateQuiz = () => {
                 />
               ))}
           </ul>
-        </div>
+        </StyledBox>
         {!succeeded && (
           <Button
             buttonType="primary"

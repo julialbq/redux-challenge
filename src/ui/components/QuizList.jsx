@@ -8,6 +8,7 @@ import {
 } from "../../state/allQuizzes";
 import { Quiz } from "./Quiz";
 import { useEffect } from "react";
+import { StyledBox } from "../style/box";
 
 export const QuizList = () => {
   const allQuizzes = useSelector((state) => getQuizzes(state));
@@ -23,7 +24,7 @@ export const QuizList = () => {
   }, []);
 
   return (
-    <div className="sidebar">
+    <StyledBox sidebar>
       {loading && <p>Loading...</p>}
       {failed && <p>Try again</p>}
       <ul className="sidebar__list">
@@ -32,6 +33,6 @@ export const QuizList = () => {
             <Quiz key={id} title={title} id={id} />
           ))}
       </ul>
-    </div>
+    </StyledBox>
   );
 };
