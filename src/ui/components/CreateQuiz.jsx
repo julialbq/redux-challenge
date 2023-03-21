@@ -19,6 +19,7 @@ import "./CreateQuiz.css";
 import { Input } from "./Input";
 import { CreateQuestion } from "./CreateQuestion";
 import { DisplayedQuestions } from "./DisplayedQuestion";
+import { Textarea } from "./Textarea";
 
 export const CreateQuiz = () => {
   const question = useSelector((state) => getQuestion(state));
@@ -64,20 +65,23 @@ export const CreateQuiz = () => {
       <form className="form" onSubmit={handleSubmit}>
         <div className="form-header">
           <Input
-            label="Quiz title:"
+            label="Quiz title"
             type="text"
             min={5}
             placeholder="Title"
             onChange={(e) => addTitle(e.target.value)}
           />
-          <textarea
+          <Textarea
             name="description"
-            cols="30"
-            rows="10"
+            label="Quiz description"
             placeholder="Form description"
             onChange={(e) => addDescription(e.target.value)}
-          ></textarea>
-          <Button buttonType="secondary" type="button" onClick={displayNewQuestion}>
+          />
+          <Button
+            buttonType="secondary"
+            type="button"
+            onClick={displayNewQuestion}
+          >
             New question
           </Button>
         </div>
@@ -101,7 +105,7 @@ export const CreateQuiz = () => {
         </div>
         {!succeeded && (
           <Button
-          buttonType="primary"
+            buttonType="primary"
             type="submit"
             disabled={failed || loading || allQuestions.length === 0}
           >
