@@ -20,7 +20,9 @@ ul, ol, li {
   --primary-green: #29D305;
   --signal-red: #EE0701;
   --signal-red-opacity: rgba(238, 7, 1, 0.3);
+  --grey-70: #676767;
   --grey-30: #BDBDBD;
+  --grey-10: #E9E9E9;
   --grey-5: #F4F4F4;
 }
 
