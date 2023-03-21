@@ -36,6 +36,10 @@ export const StyledButton = styled.button`
           color: var(--primary-black);
           border: 1px solid var(--primary-black);
 
+          &:hover {
+            border: 1px solid var(--primary-green);
+          }
+
           &:disabled {
             background-color: var(--primary-white);
             color: var(--grey-30);

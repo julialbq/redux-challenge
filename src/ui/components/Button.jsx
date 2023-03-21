@@ -1,4 +1,4 @@
-import { StyledButton } from "../style/button";
+import { StyledButton } from "../style/Button";
 
 export const Button = ({ large, buttonType, type, onClick, disabled, children }) => {
   return (
