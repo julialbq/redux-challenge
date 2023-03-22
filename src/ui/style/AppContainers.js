@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
-export const StyledAppContainer = styled.div`
+export const StyledOutterContainer = styled.div`
   display: flex;
-  align-items: baseline;
-  justify-content: space-around;
+  flex-direction: column;
+`;
 
-  @media (max-width: 720px) {
-    flex-direction: column;
-    align-items: center;
+export const StyledInnerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
   }
 `;
 
