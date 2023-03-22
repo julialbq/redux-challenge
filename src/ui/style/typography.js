@@ -34,9 +34,14 @@ export const StyledTitleXSmall = styled.h3`
 `;
 
 export const StyledTextMedium = styled.p`
+  width: 100px;
   font-family: "Red Hat Text";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   color: var(--primary-black);
+
+  @media (min-width: 768px) {
+    width: 120px;
+  }
 `;
