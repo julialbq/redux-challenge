@@ -1,13 +1,14 @@
 import { Button } from "./Button";
 import { StyledListItem } from "../style/listItem";
+import { StyledTextMedium } from "../style/typography";
 
 export const DisplayedQuestions = ({ title, type, index, onClick }) => {
   return (
     <StyledListItem>
-      <p>
+      <StyledTextMedium>
         {index + 1}. {title}
-      </p>
-      <span>Type: {type}</span>
+      </StyledTextMedium>
+      <StyledTextMedium>Type: {type}</StyledTextMedium>
       <Button buttonType="danger" type="button" onClick={onClick}>
         Remove
       </Button>

@@ -22,6 +22,7 @@ import { Textarea } from "./Textarea";
 import { StyledBox } from "../style/box";
 import { StyledList } from "../style/list";
 import { StyledForm } from "../style/form";
+import { StyledTitleSmall, StyledTitleXSmall } from "../style/typography";
 
 export const CreateQuiz = () => {
   const question = useSelector((state) => getQuestion(state));
@@ -65,6 +66,7 @@ export const CreateQuiz = () => {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledBox>
+        <StyledTitleSmall>Quiz</StyledTitleSmall>
         <Input
           label="Quiz title"
           type="text"
@@ -87,7 +89,7 @@ export const CreateQuiz = () => {
         </Button>
       </StyledBox>
       <StyledBox>
-        <h3>Questions</h3>
+        <StyledTitleXSmall>Questions</StyledTitleXSmall>
         {questionDisplayed && (
           <CreateQuestion onClick={() => addQuestion(question)} />
         )}

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { selectedQuizAction } from "../../state/allQuizzes";
 import { Button } from "./Button";
 import { StyledListItem } from "../style/listItem";
+import { StyledTextMedium } from "../style/typography";
 
 export const Quiz = ({ title, id }) => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ export const Quiz = ({ title, id }) => {
 
   return (
     <StyledListItem sidebarItem>
-      <p>{title}</p>
+      <StyledTextMedium>{title}</StyledTextMedium>
       <Button buttonType="secondary" type="button" onClick={() => findQuiz(id)}>
         Select
       </Button>

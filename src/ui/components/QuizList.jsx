@@ -9,6 +9,7 @@ import { Quiz } from "./Quiz";
 import { useEffect } from "react";
 import { StyledBox } from "../style/box";
 import { StyledList } from "../style/list";
+import { StyledTextMedium } from "../style/typography";
 
 export const QuizList = () => {
   const allQuizzes = useSelector((state) => getQuizzes(state));
@@ -25,8 +26,8 @@ export const QuizList = () => {
 
   return (
     <StyledBox sidebar>
-      {loading && <p>Loading...</p>}
-      {failed && <p>Try again</p>}
+      {loading && <StyledTextMedium>Loading...</StyledTextMedium>}
+      {failed && <StyledTextMedium>Quizzes not available</StyledTextMedium>}
       <StyledList>
         {allQuizzes.length > 0 &&
           allQuizzes.map(({ title, id }) => (
