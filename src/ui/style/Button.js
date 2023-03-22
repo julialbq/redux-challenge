@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
 export const StyledButton = styled.button`
-  width: ${(props) => (props.large ? "182px" : "125px")};
-  padding: 12px 32px;
+  width: ${(props) => (props.large ? "122px" : "77px")};
+  padding: 8px 16px;
   border: none;
   border-radius: 24px;
 
@@ -16,6 +16,11 @@ export const StyledButton = styled.button`
   &:hover {
     background-color: var(--primary-green);
     color: var(--primary-black);
+  }
+
+  @media (min-width: 768px) {
+    width: ${(props) => (props.large ? "182px" : "125px")};
+    padding: 12px 32px;
   }
 
   ${(props) => {
@@ -60,7 +65,11 @@ export const StyledButton = styled.button`
             color: var(--grey-5);
           }
         `;
-
+      case "icon": 
+          return css`
+          width: 48px;
+          height: 48px;
+          `
       default:
         return false;
     }
