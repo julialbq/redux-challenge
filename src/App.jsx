@@ -6,7 +6,11 @@ import { CreateQuiz } from "./ui/components/CreateQuiz";
 import { Header } from "./ui/components/Header";
 import { QuizList } from "./ui/components/QuizList";
 import { SelectedQuiz } from "./ui/components/SelectedQuiz";
-import { StyledAppContainer, StyledCreateQuizContainer } from "./ui/style/AppContainers";
+import {
+  StyledCreateQuizContainer,
+  StyledInnerContainer,
+  StyledOutterContainer,
+} from "./ui/style/AppContainers";
 import { GlobalStyle } from "./ui/style/global";
 
 function App() {
@@ -19,18 +23,22 @@ function App() {
   };
 
   return (
-    <StyledAppContainer>
+    <StyledOutterContainer>
       <GlobalStyle />
       <Header />
-      <StyledCreateQuizContainer>
-        <Button buttonType="primary" large onClick={createQuizPage}>Create Quiz</Button>
+      <StyledInnerContainer>
+        <StyledCreateQuizContainer>
+          <Button buttonType="primary" large onClick={createQuizPage}>
+            Create Quiz
+          </Button>
 
-        {quizCreation && <CreateQuiz />}
+          {quizCreation && <CreateQuiz />}
 
-        {selectedQuiz !== undefined && <SelectedQuiz quiz={selectedQuiz} />}
-      </StyledCreateQuizContainer>
-      <QuizList />
-    </StyledAppContainer>
+          {selectedQuiz !== undefined && <SelectedQuiz quiz={selectedQuiz} />}
+        </StyledCreateQuizContainer>
+        <QuizList />
+      </StyledInnerContainer>
+    </StyledOutterContainer>
   );
 }
 
