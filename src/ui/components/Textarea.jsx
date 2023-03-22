@@ -1,10 +1,10 @@
-import { StyledDiv } from "../style/div";
+import { StyledContainer } from "../style/containers";
 import { StyledLabel } from "../style/label";
 import { StyledTextarea } from "../style/Textarea";
 
 export const Textarea = ({ name, label, placeholder, onChange }) => {
   return (
-    <StyledDiv>
+    <StyledContainer formComponent>
       <StyledLabel>{label}</StyledLabel>
       <StyledTextarea
         name={name}
@@ -12,6 +12,6 @@ export const Textarea = ({ name, label, placeholder, onChange }) => {
         placeholder={placeholder}
         onChange={onChange}
       ></StyledTextarea>
-    </StyledDiv>
+    </StyledContainer>
   );
 };

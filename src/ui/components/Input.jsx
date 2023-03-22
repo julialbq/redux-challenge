@@ -1,10 +1,10 @@
-import { StyledDiv } from "../style/div";
+import { StyledContainer } from "../style/containers";
 import { StyledInput } from "../style/Input";
 import { StyledLabel } from "../style/label";
 
 export const Input = ({ label, name, type, placeholder, onChange, min }) => {
   return (
-    <StyledDiv>
+    <StyledContainer formComponent>
       <StyledLabel>
         {label}
         </StyledLabel>
@@ -16,6 +16,6 @@ export const Input = ({ label, name, type, placeholder, onChange, min }) => {
           placeholder={placeholder}
           onChange={onChange}
         />
-    </StyledDiv>
+    </StyledContainer>
   );
 };
