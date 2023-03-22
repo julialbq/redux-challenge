@@ -1,12 +1,16 @@
-import "./DisplayedQuestions.css"
 import { Button } from "./Button";
+import { StyledListItem } from "../style/listItem";
 
-export const DisplayedQuestions = ({title, type, index, onClick}) => {
+export const DisplayedQuestions = ({ title, type, index, onClick }) => {
   return (
-    <li className="form-body__item">
-      <p>{index + 1}. {title}</p>
+    <StyledListItem>
+      <p>
+        {index + 1}. {title}
+      </p>
       <span>Type: {type}</span>
-      <Button buttonType="danger" type="button" onClick={onClick}>Remove</Button>
-    </li> 
-  )
-}
+      <Button buttonType="danger" type="button" onClick={onClick}>
+        Remove
+      </Button>
+    </StyledListItem>
+  );
+};
