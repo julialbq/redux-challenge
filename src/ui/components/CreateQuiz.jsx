@@ -77,7 +77,7 @@ export const CreateQuiz = () => {
         <Textarea
           name="description"
           label="Quiz description"
-          placeholder="Form description"
+          placeholder="Quiz description"
           onChange={(e) => addDescription(e.target.value)}
         />
         <Button
@@ -85,7 +85,7 @@ export const CreateQuiz = () => {
           type="button"
           onClick={displayNewQuestion}
         >
-          New question
+          Question
         </Button>
       </StyledBox>
       <StyledBox>
