@@ -9,7 +9,7 @@ import { Quiz } from "./Quiz";
 import { useEffect } from "react";
 import { StyledBox } from "../style/box";
 import { StyledList } from "../style/list";
-import { StyledTextMedium } from "../style/typography";
+import { StyledTextMedium, StyledTitleSmall } from "../style/typography";
 
 export const QuizList = () => {
   const allQuizzes = useSelector((state) => getQuizzes(state));
@@ -22,10 +22,11 @@ export const QuizList = () => {
       dispatch(loadAllQuizzesAction());
     };
     loadQuizzes();
-  }, [allQuizzes]);
+  }, []);
 
   return (
     <StyledBox sidebar>
+      <StyledTitleSmall>Quizzes</StyledTitleSmall>
       {loading && <StyledTextMedium>Loading...</StyledTextMedium>}
       {failed && <StyledTextMedium>Quizzes not available</StyledTextMedium>}
       <StyledList>
