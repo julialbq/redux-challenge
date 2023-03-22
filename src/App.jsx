@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./App.css";
 import { getSelectedQuiz } from "./state/allQuizzes";
 import { getQuizCreation, quizCreatedAction } from "./state/quiz";
 import { Button } from "./ui/components/Button";
 import { CreateQuiz } from "./ui/components/CreateQuiz";
 import { QuizList } from "./ui/components/QuizList";
 import { SelectedQuiz } from "./ui/components/SelectedQuiz";
+import { StyledAppContainer, StyledCreateQuizContainer } from "./ui/style/AppContainers";
 import { GlobalStyle } from "./ui/style/global";
 
 function App() {
@@ -18,17 +18,17 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <StyledAppContainer>
       <GlobalStyle />
-      <div className="create-quiz__container">
+      <StyledCreateQuizContainer>
         <Button buttonType="primary" large onClick={createQuizPage}>Create Quiz</Button>
 
         {quizCreation && <CreateQuiz />}
 
         {selectedQuiz !== undefined && <SelectedQuiz quiz={selectedQuiz} />}
-      </div>
+      </StyledCreateQuizContainer>
       <QuizList />
-    </div>
+    </StyledAppContainer>
   );
 }
 
