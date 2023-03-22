@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const StyledListItem = styled.li`
-  width: ${(props) => props.sidebarItem && "30vw"};
+  width: ${(props) => props.sidebarItem && "50vw"};
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: 10px;
+  gap: ${(props) => props.sidebarItem && "10px"};
 `;
