@@ -3,6 +3,7 @@ import { getSelectedQuiz } from "./state/allQuizzes";
 import { getQuizCreation, quizCreatedAction } from "./state/quiz";
 import { Button } from "./ui/components/Button";
 import { CreateQuiz } from "./ui/components/CreateQuiz";
+import { Header } from "./ui/components/Header";
 import { QuizList } from "./ui/components/QuizList";
 import { SelectedQuiz } from "./ui/components/SelectedQuiz";
 import { StyledAppContainer, StyledCreateQuizContainer } from "./ui/style/AppContainers";
@@ -20,6 +21,7 @@ function App() {
   return (
     <StyledAppContainer>
       <GlobalStyle />
+      <Header />
       <StyledCreateQuizContainer>
         <Button buttonType="primary" large onClick={createQuizPage}>Create Quiz</Button>
 
