@@ -6,6 +6,7 @@ export const StyledTextarea = styled.textarea`
   font-weight: 400;
   font-size: 16px;
 
+  padding: 10px 16px;
   border: 1px solid var(--primary-black);
   border-radius: 4px;
 
