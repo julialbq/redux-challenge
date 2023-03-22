@@ -21,7 +21,7 @@ export const QuizList = () => {
       dispatch(loadAllQuizzesAction());
     };
     loadQuizzes();
-  }, []);
+  }, [allQuizzes]);
 
   return (
     <StyledBox sidebar>

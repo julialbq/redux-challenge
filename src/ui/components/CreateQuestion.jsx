@@ -1,4 +1,3 @@
-import "./CreateQuestion.css";
 import { useDispatch, useSelector } from "react-redux";
 import { questionTitleAction, questionTypeAction } from "../../state/question";
 import { Button } from "./Button";
