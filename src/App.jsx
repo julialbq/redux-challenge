@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
+import { ThemeProvider } from "styled-components";
 import { getSelectedQuiz } from "./state/allQuizzes";
 import { getQuizCreation, quizCreatedAction } from "./state/quiz";
+import { getTheme } from "./state/theme";
 import { Button } from "./ui/components/Button";
 import { CreateQuiz } from "./ui/components/CreateQuiz";
 import { Header } from "./ui/components/Header";
@@ -12,10 +14,12 @@ import {
   StyledOutterContainer,
 } from "./ui/style/AppContainers";
 import { GlobalStyle } from "./ui/style/global";
+import { themes } from "./ui/style/themes/themes";
 
 function App() {
   const quizCreation = useSelector((state) => getQuizCreation(state));
   const selectedQuiz = useSelector((state) => getSelectedQuiz(state));
+  const theme = useSelector((state) => getTheme(state));
   const dispatch = useDispatch();
 
   const createQuizPage = () => {
@@ -23,22 +27,24 @@ function App() {
   };
 
   return (
-    <StyledOutterContainer>
-      <GlobalStyle />
-      <Header />
-      <StyledInnerContainer>
-        <StyledCreateQuizContainer>
-          <Button buttonType="primary" large onClick={createQuizPage}>
-            Create Quiz
-          </Button>
+    <ThemeProvider theme={themes[theme]}>
+      <StyledOutterContainer>
+        <GlobalStyle />
+        <Header />
+        <StyledInnerContainer>
+          <StyledCreateQuizContainer>
+            <Button buttonType="primary" large onClick={createQuizPage}>
+              Create Quiz
+            </Button>
 
-          {quizCreation && <CreateQuiz />}
+            {quizCreation && <CreateQuiz />}
 
-          {selectedQuiz !== undefined && <SelectedQuiz quiz={selectedQuiz} />}
-        </StyledCreateQuizContainer>
-        <QuizList />
-      </StyledInnerContainer>
-    </StyledOutterContainer>
+            {selectedQuiz !== undefined && <SelectedQuiz quiz={selectedQuiz} />}
+          </StyledCreateQuizContainer>
+          <QuizList />
+        </StyledInnerContainer>
+      </StyledOutterContainer>
+    </ThemeProvider>
   );
 }
 
