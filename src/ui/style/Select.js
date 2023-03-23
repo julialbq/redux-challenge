@@ -6,17 +6,17 @@ export const StyledSelect = styled.select`
 
   padding: 4px 8px 4px 16px;
 
-  border: 1px solid var(--primary-black);
+  border: 1px solid v${(props) => props.theme.primary};
   border-radius: 4px;
 
   font-family: "Red Hat Text";
   font-weight: 400;
   font-size: 16px;
-  color: var(--primary-black);
+  color: ${(props) => props.theme.primary};
 
-  background-color: var(--primary-white);
+  background-color: ${(props) => props.theme.secondary};
 
   &:focus {
-    outline-color: var(--primary-green);
+    outline-color: ${(props) => props.theme.tertiary};
   }
 `;

@@ -5,8 +5,9 @@ export const StyledHeader = styled.div`
   height: 110px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: var(--primary-grey);
-
+  justify-content: space-around;
   margin-bottom: 10px;
+
+  background-color: ${(props) => props.theme.secondary};
+  border-bottom: 1px solid ${(props) => props.theme.border};
 `;

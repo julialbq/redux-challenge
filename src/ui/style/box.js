@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const StyledBox = styled.div`
   width: 300px;
@@ -10,7 +10,7 @@ export const StyledBox = styled.div`
   align-items: center;
   gap: 10px;
 
-  border: 1px solid var(--grey-10);
+  border: 1px solid ${(props) => props.theme.border};
   border-radius: 8px;
 
   @media (min-width: 768px) {
