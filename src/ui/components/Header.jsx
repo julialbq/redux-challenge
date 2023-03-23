@@ -16,7 +16,7 @@ export const Header = () => {
     <StyledHeader>
       <StyledTitleLarge>Noises and Quizzes</StyledTitleLarge>
       <Button buttonType="secondary" onClick={changeTheme}>
-          {theme} Mode
+          {theme === "Dark" ? "Light" : "Dark"} Mode
         </Button>
     </StyledHeader>
   )
