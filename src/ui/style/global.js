@@ -27,10 +27,14 @@ ul, ol, li {
 }
 
 .dark {
-  --dark-primary-black: #171717;
-  --dark-primary-white: #EDEDED;
-  --dark-primary-green: #35BB18;
-  --dark-signal-red: #C82520;
-  --dark-grey: #5E5E5E;
+  --primary-black: #171717;
+  --primary-white: #EDEDED;
+  --primary-green: #35BB18;
+  --signal-red: #C82520;
+  --grey: #5E5E5E;
+  --grey-70: #676767;
+  --grey-30: #BDBDBD;
+  --grey-10: #E9E9E9;
+  --grey-5: #F4F4F4;
 }
 `;
