@@ -14,8 +14,8 @@ export const StyledButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: var(--primary-green);
-    color: var(--primary-black);
+    background-color: ${(props) => props.theme.tertiary};
+    color: ${(props) => props.theme.primary};
   }
 
   @media (min-width: 768px) {
@@ -27,49 +27,44 @@ export const StyledButton = styled.button`
     switch (props.buttonType) {
       case "primary":
         return css`
-          background-color: var(--primary-black);
-          color: var(--primary-white);
+          background-color: ${(props) => props.theme.primary};
+          color: ${(props) => props.theme.secondary};
 
           &:disabled {
-            background-color: var(--grey-30);
-            color: var(--grey-5);
+            background-color: ${(props) => props.theme.buttonDisabledBckg};
+            color: ${(props) => props.theme.buttonDisabledBckgText};
           }
         `;
       case "secondary":
         return css`
-          background-color: var(--primary-white);
-          color: var(--primary-black);
-          border: 1px solid var(--primary-black);
+          background-color: ${(props) => props.theme.secondary};
+          color: ${(props) => props.theme.primary};
+          border: 1px solid ${(props) => props.theme.primary};
 
           &:hover {
-            border: 1px solid var(--primary-green);
+            border: 1px solid ${(props) => props.theme.tertiary};
           }
 
           &:disabled {
-            background-color: var(--primary-white);
-            color: var(--grey-30);
+            background-color: ${(props) => props.theme.secondary};
+            color: ${(props) => props.theme.buttonDisabledBckg};
           }
         `;
       case "danger":
         return css`
-          background-color: var(--signal-red);
-          color: var(--primary-white);
+          background-color: ${(props) => props.theme.signalRed};
+          color: ${(props) => props.theme.secondary};
 
           &:hover {
-            background-color: var(--primary-black);
-            color: var(--primary-white);
+            background-color: ${(props) => props.theme.primary};
+            color: ${(props) => props.theme.secondary};
           }
 
           &:disabled {
-            background-color: var(--signal-red-opacity);
-            color: var(--grey-5);
+            background-color: ${(props) => props.theme.signalRedButtonHover};
+            color: ${(props) => props.theme.buttonDisabledBckgText};
           }
         `;
-      case "icon": 
-          return css`
-          width: 48px;
-          height: 48px;
-          `
       default:
         return false;
     }
