@@ -34,6 +34,11 @@ export const allQuizzesReducer = (state = allQuizzesInitialState, action) => {
         selectedQuiz: state.allQuizzes.find((quiz) => quiz.id === action.data),
         selectedQuizId: action.data,
       };
+    case "QUIZ_SAVE_SUCCEEDED":
+      return {
+        ...state,
+        allQuizzes: [...state.allQuizzes, action.data]
+      }
     default: {
       return state;
     }

@@ -15,10 +15,14 @@ import {
   getQuizSucceeded,
 } from "../../state/quiz";
 import { Button } from "./Button";
-import "./CreateQuiz.css";
 import { Input } from "./Input";
 import { CreateQuestion } from "./CreateQuestion";
 import { DisplayedQuestions } from "./DisplayedQuestion";
+import { Textarea } from "./Textarea";
+import { StyledBox } from "../style/box";
+import { StyledList } from "../style/list";
+import { StyledForm } from "../style/form";
+import { StyledTitleSmall, StyledTitleXSmall } from "../style/typography";
 
 export const CreateQuiz = () => {
   const question = useSelector((state) => getQuestion(state));
@@ -60,54 +64,57 @@ export const CreateQuiz = () => {
   };
 
   return (
-    <div className="form-wrapper">
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form-header">
-          <Input
-            label="Quiz title:"
-            type="text"
-            min={5}
-            placeholder="Title"
-            onChange={(e) => addTitle(e.target.value)}
-          />
-          <textarea
-            name="description"
-            cols="30"
-            rows="10"
-            placeholder="Form description"
-            onChange={(e) => addDescription(e.target.value)}
-          ></textarea>
-          <Button type="button" onClick={displayNewQuestion}>
-            New question
-          </Button>
-        </div>
-        <div className="form-body">
-          <h3>Questions</h3>
-          {questionDisplayed && (
-            <CreateQuestion onClick={() => addQuestion(question)} />
-          )}
-          <ul className="form-body__list">
-            {allQuestions.length > 0 &&
-              allQuestions.map(({ title, type }, index) => (
-                <DisplayedQuestions
-                  key={title}
-                  title={title}
-                  type={type}
-                  index={index}
-                  onClick={() => removeQuestion(title)}
-                />
-              ))}
-          </ul>
-        </div>
-        {!succeeded && (
-          <Button
-            type="submit"
-            disabled={failed || loading || allQuestions.length === 0}
-          >
-            Finish
-          </Button>
+    <StyledForm onSubmit={handleSubmit}>
+      <StyledBox>
+        <StyledTitleSmall>Quiz</StyledTitleSmall>
+        <Input
+          label="Quiz title"
+          type="text"
+          min={5}
+          placeholder="Title"
+          onChange={(e) => addTitle(e.target.value)}
+        />
+        <Textarea
+          name="description"
+          label="Quiz description"
+          placeholder="Quiz description"
+          onChange={(e) => addDescription(e.target.value)}
+        />
+        <Button
+          buttonType="secondary"
+          type="button"
+          onClick={displayNewQuestion}
+        >
+          Question
+        </Button>
+      </StyledBox>
+      <StyledBox>
+        <StyledTitleXSmall>Questions</StyledTitleXSmall>
+        {questionDisplayed && (
+          <CreateQuestion onClick={() => addQuestion(question)} />
         )}
-      </form>
-    </div>
+        <StyledList>
+          {allQuestions.length > 0 &&
+            allQuestions.map(({ title, type }, index) => (
+              <DisplayedQuestions
+                key={title}
+                title={title}
+                type={type}
+                index={index}
+                onClick={() => removeQuestion(title)}
+              />
+            ))}
+        </StyledList>
+      </StyledBox>
+      {!succeeded && (
+        <Button
+          buttonType="primary"
+          type="submit"
+          disabled={failed || loading || allQuestions.length === 0}
+        >
+          Finish
+        </Button>
+      )}
+    </StyledForm>
   );
 };

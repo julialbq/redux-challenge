@@ -1,15 +1,18 @@
+import { StyledBox } from "../style/box";
+import { StyledTextMedium, StyledTitleXSmall } from "../style/typography";
+
 export const SelectedQuiz = ({quiz}) => {
   const {title, description, questions} = quiz;
 
   return (
-    <div>
-      <h3>{title}</h3>
-      <p>{description}</p>
+    <StyledBox>
+      <StyledTitleXSmall>{title}</StyledTitleXSmall>
+      <StyledTextMedium>{description}</StyledTextMedium>
       {questions.map(({ id, title }) => (
-        <p key={id}>
+        <StyledTextMedium key={id}>
           {id}. {title}
-        </p>
+        </StyledTextMedium>
       ))}
-    </div>
+    </StyledBox>
   );
 };

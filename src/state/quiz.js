@@ -1,5 +1,6 @@
 import axios from "axios";
 import { apiUrl } from "../infrastructure/apiUrl";
+import { loadAllQuizzesAction } from "./allQuizzes";
 
 const quizInitialState = {
   quizCreation: false,
@@ -65,7 +66,7 @@ export const quizReducer = (state = quizInitialState, action) => {
     case "QUIZ_SAVE_SUCCEEDED":
       return {
         ...state,
-        data: action.data,
+        data: { title: "", description: "", questions: [] },
         loading: false,
         succeeded: true,
       };
@@ -129,17 +130,17 @@ export const quizSavedAction = (value) => {
     });
 
     try {
-      await axios.post(`${apiUrl}/quizzes`, value);
+      const response = await axios.post(`${apiUrl}/quizzes`, value);
 
       dispatch({
         type: "QUIZ_SAVE_SUCCEEDED",
-        data: { title: "", description: "", questions: [] },
+        data: response.data,
       });
     } catch (error) {
       dispatch({
         type: "QUIZ_SAVE_FAILED",
       });
-      console.log(error.message)
+      console.log(error.message);
     }
   };
 };

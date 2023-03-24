@@ -1,11 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./App.css";
 import { getSelectedQuiz } from "./state/allQuizzes";
 import { getQuizCreation, quizCreatedAction } from "./state/quiz";
 import { Button } from "./ui/components/Button";
 import { CreateQuiz } from "./ui/components/CreateQuiz";
+import { Header } from "./ui/components/Header";
 import { QuizList } from "./ui/components/QuizList";
 import { SelectedQuiz } from "./ui/components/SelectedQuiz";
+import {
+  StyledCreateQuizContainer,
+  StyledInnerContainer,
+  StyledOutterContainer,
+} from "./ui/style/AppContainers";
+import { GlobalStyle } from "./ui/style/global";
 
 function App() {
   const quizCreation = useSelector((state) => getQuizCreation(state));
@@ -17,16 +23,22 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="create-quiz__container">
-        <Button onClick={createQuizPage}>Create Quiz</Button>
+    <StyledOutterContainer>
+      <GlobalStyle />
+      <Header />
+      <StyledInnerContainer>
+        <StyledCreateQuizContainer>
+          <Button buttonType="primary" large onClick={createQuizPage}>
+            Create Quiz
+          </Button>
 
-        {quizCreation && <CreateQuiz />}
+          {quizCreation && <CreateQuiz />}
 
-        {selectedQuiz !== undefined && <SelectedQuiz quiz={selectedQuiz} />}
-      </div>
-      <QuizList />
-    </div>
+          {selectedQuiz !== undefined && <SelectedQuiz quiz={selectedQuiz} />}
+        </StyledCreateQuizContainer>
+        <QuizList />
+      </StyledInnerContainer>
+    </StyledOutterContainer>
   );
 }
 

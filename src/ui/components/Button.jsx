@@ -1,9 +1,9 @@
-import "./Button.css"
+import { StyledButton } from "../style/Button";
 
-export const Button = ({ type, onClick, disabled, children }) => {
+export const Button = ({ large, buttonType, type, onClick, disabled, children }) => {
   return (
-    <button className="button" type={type} onClick={onClick} disabled={disabled}>
+    <StyledButton large={large} buttonType={buttonType} type={type} onClick={onClick} disabled={disabled}>
       {children}
-    </button>
+    </StyledButton>
   );
 };
